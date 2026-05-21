@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luka Magic Tips – Acesse o Grupo Gratuito</title>
+
+  <!-- ====================================================
+       META PIXEL — substitua SEU_PIXEL_ID pelo seu ID real
+       ==================================================== -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
+    n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID');
+    fbq('track', 'PageView');
+    fbq('track', 'Lead');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=Lead&noscript=1"/>
+  </noscript>
+  <!-- ====================================================
+       FIM PIXEL
+       ==================================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Variáveis ── */
+    :root {
+      --bg:          #08060f;
+      --purple:      #7b2fbe;
+      --purple-mid:  #9d3cf5;
+      --purple-light:#c084fc;
+      --gold:        #d4a017;
+      --gold-hover:  #f0bc1e;
+      --pink:        #e040fb;
+      --white:       #ffffff;
+      --gray:        rgba(255,255,255,0.68);
+      --card-bg:     rgba(255,255,255,0.04);
+      --card-border: rgba(160,90,255,0.25);
+    }
+
+    /* ── Base ── */
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ── Glow de fundo estilo estádio ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 55% at 20% 80%, rgba(123,47,190,0.45) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 55% at 80% 80%, rgba(123,47,190,0.45) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 50% 100%, rgba(157,60,245,0.20) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Partículas decorativas (círculos) ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle 1px at 15% 20%, rgba(255,255,255,0.18) 0%, transparent 100%),
+        radial-gradient(circle 1px at 85% 15%, rgba(255,255,255,0.14) 0%, transparent 100%),
+        radial-gradient(circle 1px at 50% 50%, rgba(157,60,245,0.12) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Container ── */
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 660px;
+      padding: 48px 24px 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      text-align: center;
+    }
+
+    /* ── Logo / cabeçalho ── */
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .logo-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0.9;
+    }
+
+    /* ── Foto do Luka ── */
+    .hero-image-wrap {
+      position: relative;
+      width: 260px;
+      height: 320px;
+      flex-shrink: 0;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 20px;
+      display: block;
+    }
+
+    /* Glow roxo atrás da foto */
+    .hero-image-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -18px;
+      background: radial-gradient(ellipse at center, rgba(123,47,190,0.55) 0%, transparent 70%);
+      border-radius: 30px;
+      z-index: -1;
+    }
+
+    /* Fade suave na borda inferior */
+    .hero-image-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+      border-radius: 0 0 20px 20px;
+      pointer-events: none;
+    }
+
+    /* ── Divisor roxo ── */
+    .divider {
+      width: 64px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--purple-mid), transparent);
+      border-radius: 2px;
+    }
+
+    /* ── Badge "grupo gratuito" ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(123,47,190,0.20);
+      border: 1px solid rgba(160,90,255,0.40);
+      border-radius: 100px;
+      padding: 6px 18px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+    }
+
+    /* ── Hero headline ── */
+    .headline {
+      font-size: clamp(1.9rem, 5vw, 2.7rem);
+      font-weight: 900;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+    }
+
+    .headline .accent {
+      color: var(--gold);
+      display: inline;
+    }
+
+    /* ── Subtítulo ── */
+    .subtitle {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gray);
+      line-height: 1.65;
+      max-width: 520px;
+    }
+
+    /* ── Lista de benefícios ── */
+    .benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 16px 20px;
+      transition: border-color 0.25s;
+    }
+
+    .benefit:hover {
+      border-color: rgba(160,90,255,0.55);
+    }
+
+    .benefit-icon {
+      font-size: 1.35rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .benefit-text strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .benefit-text span {
+      font-size: 0.82rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ── CTA principal ── */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-hover) 100%);
+      color: #1a0a00;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 12px;
+      padding: 20px 40px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 420px;
+      box-shadow:
+        0 0 32px rgba(212,160,23,0.45),
+        0 4px 24px rgba(0,0,0,0.35);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      text-decoration: none;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.025);
+      box-shadow:
+        0 0 48px rgba(240,188,30,0.55),
+        0 8px 32px rgba(0,0,0,0.4);
+      background: linear-gradient(135deg, var(--gold-hover) 0%, #ffcf40 100%);
+    }
+
+    .cta-btn:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .cta-icon {
+      font-size: 1.3rem;
+    }
+
+    /* ── Aviso de redirecionamento ── */
+    .redirect-note {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.38);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Prova social ── */
+    .social-proof {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .avatars {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid var(--bg);
+      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-mid) 100%);
+      font-size: 0.7rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin-left: -8px;
+    }
+
+    .avatar:first-child { margin-left: 0; }
+
+    .social-text {
+      font-size: 0.82rem;
+      color: var(--gray);
+    }
+
+    .social-text strong {
+      color: var(--white);
+    }
+
+    /* ── Footer ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 0 24px 28px;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ── Responsivo ── */
+    @media (max-width: 480px) {
+      .container { padding: 36px 18px 44px; gap: 24px; }
+      .cta-btn   { font-size: 0.95rem; padding: 18px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Logo -->
+    <div class="logo">
+      <div class="logo-name">Luka Magic Tips</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Foto do Luka Dončić -->
+    <!-- Salve a foto com o nome "luka.png" na mesma pasta deste arquivo -->
+    <div class="hero-image-wrap">
+      <img src="luka.png" alt="Luka Dončić" />
+    </div>
+
+    <!-- Badge -->
+    <div class="badge">
+      ✅ &nbsp;Grupo 100% Gratuito
+    </div>
+
+    <!-- Headline -->
+    <h1 class="headline">
+      Você está a um passo de<br/>
+      <span class="accent">ter lucro diário</span><br/>
+      de graça
+    </h1>
+
+    <!-- Subtítulo -->
+    <p class="subtitle">
+      Clique no botão abaixo para entrar no grupo do Telegram e começar a receber
+      análises e palpites todos os dias — sem pagar nada.
+    </p>
+
+    <!-- Benefícios -->
+    <div class="benefits">
+      <div class="benefit">
+        <div class="benefit-icon">⚡</div>
+        <div class="benefit-text">
+          <strong>Palpites diários gratuitos</strong>
+          <span>Receba análises todos os dias direto no seu Telegram, sem custo.</span>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">⚽</div>
+        <div class="benefit-text">
+          <strong>Múltiplos mercados esportivos</strong>
+          <span>Futebol, NBA, NFL, tênis, MMA e muito mais.</span>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">📊</div>
+        <div class="benefit-text">
+          <strong>Análises baseadas em dados</strong>
+          <span>Estatísticas e histórico para fundamentar cada palpite.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <a class="cta-btn" href="#" id="cta" onclick="entrarNoGrupo(event)">
+      <span class="cta-icon">💬</span>
+      Entrar no Grupo Agora
+    </a>
+
+    <p class="redirect-note">Você será redirecionado para o Telegram</p>
+
+    <!-- Prova social -->
+    <div class="social-proof">
+      <div class="avatars">
+        <div class="avatar">MR</div>
+        <div class="avatar">FP</div>
+        <div class="avatar">KL</div>
+        <div class="avatar">+</div>
+      </div>
+      <p class="social-text">
+        <strong>+100.000 pessoas</strong> já fazem parte da comunidade
+      </p>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2025 Luka Magic Tips · Todos os direitos reservados<br/>
+    Aposta com responsabilidade. Proibido para menores de 18 anos.
+  </footer>
+
+  <script>
+    // ============================================================
+    // CONFIGURAÇÃO — edite apenas estas variáveis
+    // ============================================================
+    var LINKS = {
+      // Link usado pela campanha "visitas ao perfil" (link da bio)
+      bio:    'https://t.me/SEU_LINK_BIO',
+      // Link usado pela campanha "cliques diretos" no anúncio
+      direto: 'https://t.me/SEU_LINK_DIRETO'
+    };
+    // ============================================================
+
+    // Lê o parâmetro ?src= da URL para saber de qual campanha veio
+    function getSource() {
+      var params = new URLSearchParams(window.location.search);
+      return params.get('src') || 'direto';
+    }
+
+    // Escolhe o link correto com base na origem
+    function getTelegramLink() {
+      var src = getSource();
+      return LINKS[src] || LINKS['direto'];
+    }
+
+    // Chamada ao clicar no botão
+    function entrarNoGrupo(e) {
+      e.preventDefault();
+
+      // Dispara evento de conversão no Meta Pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'CompleteRegistration', {
+          content_name: 'grupo_gratuito_telegram',
+          source: getSource()
+        });
+      }
+
+      // Aguarda 400ms para o pixel registrar antes de redirecionar
+      setTimeout(function() {
+        window.location.href = getTelegramLink();
+      }, 400);
+    }
+  </script>
+
+</body>
+</html>

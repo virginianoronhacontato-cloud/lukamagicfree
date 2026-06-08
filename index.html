@@ -124,31 +124,74 @@
       opacity: 0.9;
     }
 
-    /* ── Foto do Luka ── */
-    .hero-image-wrap {
+    /* ── Galeria de jogadores ── */
+    .players-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0;
+      width: 100%;
+      max-width: 680px;
       position: relative;
-      width: 360px;
-      height: 440px;
+    }
+
+    .player-wrap {
+      position: relative;
       flex-shrink: 0;
     }
 
-    .hero-image-wrap img {
+    /* Jogador central (Luka) — maior */
+    .player-wrap.main {
+      width: 200px;
+      height: 300px;
+      z-index: 2;
+    }
+
+    /* Jogadores laterais — menores */
+    .player-wrap.side {
+      width: 150px;
+      height: 240px;
+      z-index: 1;
+    }
+
+    /* Sobreposição dos laterais sobre o central */
+    .player-wrap.side:nth-child(1) { margin-right: -20px; }
+    .player-wrap.side:nth-child(4) { margin-left: -20px; }
+
+    .player-wrap img {
       width: 100%;
       height: 100%;
       object-fit: contain;
       object-position: bottom center;
       display: block;
-      filter: drop-shadow(0 0 32px rgba(123,47,190,0.6));
+      filter: drop-shadow(0 0 18px rgba(123,47,190,0.55));
     }
 
-    /* Glow roxo atrás da foto */
-    .hero-image-wrap::before {
+    .player-wrap.main img {
+      filter: drop-shadow(0 0 28px rgba(123,47,190,0.7));
+    }
+
+    /* Glow geral atrás do grupo */
+    .players-row::before {
       content: '';
       position: absolute;
-      inset: -18px;
-      background: radial-gradient(ellipse at center, rgba(123,47,190,0.4) 0%, transparent 70%);
-      border-radius: 30px;
-      z-index: -1;
+      inset: -10px;
+      background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(123,47,190,0.35) 0%, transparent 70%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .player-name {
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      white-space: nowrap;
     }
 
     /* ── Divisor roxo ── */
@@ -348,9 +391,15 @@
     footer a:hover { color: rgba(255,255,255,0.6); }
 
     /* ── Responsivo ── */
+    @media (max-width: 600px) {
+      .player-wrap.main { width: 140px; height: 210px; }
+      .player-wrap.side { width: 105px; height: 168px; }
+    }
     @media (max-width: 480px) {
       .container { padding: 36px 18px 44px; gap: 24px; }
       .cta-btn   { font-size: 0.95rem; padding: 18px 28px; }
+      .player-wrap.main { width: 120px; height: 180px; }
+      .player-wrap.side { width: 90px;  height: 144px; }
     }
   </style>
 </head>
@@ -365,10 +414,24 @@
 
     <div class="divider"></div>
 
-    <!-- Foto do Luka Dončić -->
-    <!-- Salve a foto com o nome "luka.png" na mesma pasta deste arquivo -->
-    <div class="hero-image-wrap">
-      <img src="luka.png" alt="Luka Dončić" />
+    <!-- Galeria de jogadores -->
+    <div class="players-row">
+      <div class="player-wrap side">
+        <img src="neymar.png" alt="Neymar" />
+        <span class="player-name">Neymar</span>
+      </div>
+      <div class="player-wrap main">
+        <img src="luka.png" alt="Luka Dončić" />
+        <span class="player-name">Luka Magic</span>
+      </div>
+      <div class="player-wrap side">
+        <img src="vini.png" alt="Vini Jr" />
+        <span class="player-name">Vini Jr</span>
+      </div>
+      <div class="player-wrap side">
+        <img src="mbappe.png" alt="Mbappé" />
+        <span class="player-name">Mbappé</span>
+      </div>
     </div>
 
     <!-- Badge -->
